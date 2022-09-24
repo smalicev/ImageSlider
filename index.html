@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Document</title>
+</head>
+<body>
+
+
+<div class= "content">
+
+    <<img src="img_girl.jpg" alt="Girl in a jacket">
+    Photo by <a href="https://unsplash.com/@micheile?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">micheile dot com</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  Photo by <a href="https://unsplash.com/@isaac_taylor?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Isaac Mitchell</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  Photo by <a href="https://unsplash.com/@prometheusdesign?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Prometheus Design</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  
+
+</div>
+
+<script>
+function SDropDown(){
+    const MobileMenu = document.createElement('div');
+    MobileMenu.classList.add('Sdropdownbase');
+
+
+    const dropDownContent = document.createElement('div');
+    dropDownContent.classList.add('items');
+
+    const expand = document.createElement('button');
+    expand.classList.add('expand');
+    expand.innerText = 'Home';
+
+    MobileMenu.appendChild(expand);
+    MobileMenu.appendChild(dropDownContent);
+    let newRow = document.createElement('div')
+
+        dropDownContent.appendChild(newRow);
+        newRow.innerHTML = `
+        <ul> Title </ul>
+        <ul> Title </ul>
+        <ul> Title </ul>
+        <ul> Title </ul>
+        <ul> Title </ul>
+        <ul> Title </ul>
+        <ul> Title </ul>
+        <ul> Title </ul>
+        <ul> Title </ul>
+        <ul> Title </ul>
+        
+        `;
+
+
+    return MobileMenu;
+};
+
+const cont = document.querySelector('.content');
+
+cont.appendChild(SDropDown());
+
+
+</script>
+</body>
+</html>

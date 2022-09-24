@@ -1,0 +1,23 @@
+{
+  "name": "mobilemenu",
+  "version": "1.0.0",
+  "description": "Reusable Mobile Menu",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smalicev/MobileMenu.git"
+  },
+  "keywords": [
+    "Mobile",
+    "Menu"
+  ],
+  "author": "Srdjan Malicevic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smalicev/MobileMenu/issues"
+  },
+  "homepage": "https://github.com/smalicev/MobileMenu#readme"
+}

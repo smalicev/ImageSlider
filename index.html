@@ -13,54 +13,81 @@
 
 <div class= "content">
 
-    <<img src="img_girl.jpg" alt="Girl in a jacket">
-    Photo by <a href="https://unsplash.com/@micheile?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">micheile dot com</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  Photo by <a href="https://unsplash.com/@isaac_taylor?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Isaac Mitchell</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  Photo by <a href="https://unsplash.com/@prometheusdesign?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Prometheus Design</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  
+    <div class ='slide'>
+        <img src="isaac-mitchell-aa8Pi3253Eo-unsplash.jpg" alt="foggy forest" style="width:100%">
+        Photo by <a href="https://unsplash.com/@isaac_taylor?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Isaac Mitchell</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>    
+    </div>
+    <div class ='slide'>
+        <img src="micheile-dot-com-ug6B6VZW7Zw-unsplash.jpg" alt="flower bouquet" style="width:100%">  
+        Photo by <a href="https://unsplash.com/@micheile?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">micheile dot com</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+    </div>
+    <div class ='slide'>
+        <img src="s-tsuchiya-8gq8-P2T4bg-unsplash.jpg" alt="pointy tower" style="width:100%">
+        Photo by <a href="https://unsplash.com/@s_tsuchiya?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">S. Tsuchiya</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>     
+    </div>
+
+    <div class ='selectbuttons'>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+<div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+</div>
 
 </div>
 
+
+
 <script>
-function SDropDown(){
-    const MobileMenu = document.createElement('div');
-    MobileMenu.classList.add('Sdropdownbase');
+let slideIndex = 1;
+showSlides(slideIndex);
 
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
 
-    const dropDownContent = document.createElement('div');
-    dropDownContent.classList.add('items');
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
 
-    const expand = document.createElement('button');
-    expand.classList.add('expand');
-    expand.innerText = 'Home';
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("slide");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
 
-    MobileMenu.appendChild(expand);
-    MobileMenu.appendChild(dropDownContent);
-    let newRow = document.createElement('div')
+function autoslide() {
+    let i;
+    let slides = document.getElementsByClassName("slide");
+    let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";
+    if (slideIndex == 1) {dots[2].className = dots[2].className.replace(" active", "")}
+    else {dots[slideIndex-2].className = dots[slideIndex-2].className.replace(" active", "");}
+    setTimeout(autoslide, 8000); // Change image every 2 seconds
+    dots[slideIndex-1].className += " active";
+}
 
-        dropDownContent.appendChild(newRow);
-        newRow.innerHTML = `
-        <ul> Title </ul>
-        <ul> Title </ul>
-        <ul> Title </ul>
-        <ul> Title </ul>
-        <ul> Title </ul>
-        <ul> Title </ul>
-        <ul> Title </ul>
-        <ul> Title </ul>
-        <ul> Title </ul>
-        <ul> Title </ul>
-        
-        `;
-
-
-    return MobileMenu;
-};
-
-const cont = document.querySelector('.content');
-
-cont.appendChild(SDropDown());
-
+autoslide();
 
 </script>
 </body>
